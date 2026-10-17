@@ -2,4 +2,4 @@
 # название сайта : пароль
 # Найти пароль от сайта vk.com
 
-grep 'vk.com' 1.txt
+grep 'vk.com' 1.txt | grep -o -E ': [0-9a-zA-Z]+' | grep -o -E '[0-9a-zA-Z]+'
