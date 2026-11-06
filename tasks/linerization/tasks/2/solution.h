@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     int acc = 0;
     int curr_number = 0;
     char c;
-    while ((c = getchar()) != '\n' && c != EOF) {
+    while ((c = getchar()) != '\n') {
         if (c >= '0' && c <= '9') {
             curr_number = curr_number * 10 + (c - '0');
         } else {
