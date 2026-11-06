@@ -1,5 +1,3 @@
-#pragma once
-
 #include "stdlib.h"
 #include "stdio.h"
 #include "math.h"
@@ -64,6 +62,10 @@ int main(int argc, char *argv[]) {
     int mx = v[0], mn = v[0], num_of_mn_cols = 0;
     for (int i = 0; i < rank; i++) {
         mat[i] = (int *) malloc(sizeof(int) * rank);
+        if (mat[i] == NULL) {
+            printf("Memory malloc failed\n");
+            return 1;
+        }
         for (int j = 0; j < rank; j++) {
             mat[i][j] = v[i * rank + j];
             if (mat[i][j] > mx) {
