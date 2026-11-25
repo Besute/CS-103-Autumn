@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include <windows.h>
 
 // Примечание: в тестах ошибка. В общем условии даётся a, b, n такие что [a, b] и n промежутков. Вывод ненмого
 // Изменил: подстроил под windows и сделал такой формат:
@@ -34,8 +33,6 @@ float approximately_value(float x, float goal, int *iters) {
 }
 
 int main(int argc, char *argv[]) {
-    SetConsoleOutputCP(CP_UTF8);
-    SetConsoleCP(CP_UTF8);
     float a, b, size, batch;
     long long n;
     scanf("%f %f %lld", &a, &b, &n);
