@@ -21,6 +21,22 @@ double f2_fi(double x) {
     return (double) 1.0 + sin(x) - log(1 + x);
 }
 
+double f3(double x) {
+    return 3 * x - 14 + pow(M_E, x) - pow(M_E, -x);
+}
+
+double f3_sh(double x) {
+    return 3 + pow(M_E, x) + pow(M_E, -x);
+}
+
+double third_ans(double epsilon, double goal) {
+    double root = 1.5;
+    while (abs_double(goal - root) > epsilon) {
+        root -= f3(root) / f3_sh(root);
+    }
+    return root;
+}
+
 double second_ans(double epsilon, double goal) {
     double mid = 1, ans = 99, next;
 
@@ -57,6 +73,6 @@ int main(int argc, char *argv[]) {
         precision += 1;
         copyepsilon *= 10;
     }
-    printf("%.*f %.*f", precision, first_ans(epsilon, 1.0894), precision, second_ans(epsilon, 1.1474));
+    printf("%.*f %.*f %.*f", precision, first_ans(epsilon, 1.0894), precision, second_ans(epsilon, 1.1474), precision, third_ans(epsilon, 2.0692));
     return 0;
 }
